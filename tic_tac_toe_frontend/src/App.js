@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Chat from "./Chat";
 
 /**
  * -- COLOR PALETTE (from requirements) --
@@ -193,6 +194,9 @@ function App() {
           Modern Tic Tac Toe • By Kavia • Minimal UI Demo
         </small>
       </footer>
+
+      {/* AI Chat interface */}
+      <Chat />
     </div>
   );
 }

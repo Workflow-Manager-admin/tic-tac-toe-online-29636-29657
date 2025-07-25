@@ -43,6 +43,29 @@ The main brand colors are defined as CSS variables in `src/App.css`:
 }
 ```
 
+---
+
+## AI Chat Functionality & OpenAI API KEY SECURITY
+
+- **Never expose your OpenAI API key in client-side/front-end code.**
+- The provided Chat UI in this app stubs/fakes AI responses. For real AI replies, you must proxy API requests via a secure server.
+
+### Production setup
+
+1. **Create a backend endpoint** (e.g., `/api/openai/chat`) that:
+    - Accepts user chat messages.
+    - Forwards them to OpenAI's GPT API.
+    - Injects the API key using the server's environment variable (e.g., `OPENAI_API_KEY` or `REACT_APP_OPENAI_API_KEY`).
+    - Returns the AI's response to the frontend.
+
+2. **Refer to** [OpenAI API docs](https://platform.openai.com/docs/guides/chat) for the JSON API format.
+
+3. **Update the Chat.js file** to make requests to your secure backend endpoint (search for "backend proxy" in code comments).
+
+This approach keeps your API key safe and out of client builds.
+
+---
+
 ### Components
 
 This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
